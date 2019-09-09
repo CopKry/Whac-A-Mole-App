@@ -1,0 +1,98 @@
+.cent{
+	padding:0.625rem;
+	display: flex;
+	justify-content: space-between;
+	font-size: 1.875rem;
+	overflow: hidden;
+}
+.time{
+	position: absolute;
+	left:1.25rem;
+}
+.nowGetCents{
+	position: absolute;
+	right: 1.25rem;
+}
+.scroll{
+	position: absolute;
+	top: 3.125rem;
+	border: 5px solid burlywood;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	border-radius: 0.625rem;
+	width: 25rem;
+	height: 1.5625rem;
+	background-color: rgba(255,255,255,0.3);
+}
+.scroll-color{
+	height: 100%;
+	width: 100%;
+	border-top-left-radius:0.625rem;
+	border-bottom-left-radius: 0.625rem;
+	background-color: green;
+	transition: all 1s;
+}
+.all-scroll{
+	border-radius: 0.625rem;
+}
+.main{
+	top: 52%;
+	height: 80%;
+}
+#putMouse{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+#putMouse>div{
+	margin: 0.3125rem;
+	background: url(../img/dong.png) no-repeat center;
+	background-size: cover;
+}
+#putMouse>.isMouse{
+	background-image:url(../img/disu.png);
+}
+.six-mouse{
+	width: 45%;
+	height: 30%;
+}
+.eight-mouse{
+	width: 45%;
+	height: 23%;
+}
+.ten-mouse{
+	width: 45%;
+	height: 18%;
+}
+.twelve-mouse{
+	width: 30%;
+	height: 23%;
+}
+#putUserInfo{
+	border-radius: 0.3125rem;
+	position: absolute;
+	top: 46%;
+	transform: translateY(-50%) translateX(-50%);
+	left: 50%;
+	width: 70%;
+	height: 50%;
+	background: rgba(255,255,255,0.8);
+	padding: 0.625rem;
+}
+#putUserInfo>p{
+	font-size: 2.5rem;
+	text-align: center;
+	margin-top: 3.125rem;
+}
+.putBtn{
+	margin-top: 2.5rem;
+	display: flex;
+	justify-content: space-between;
+}
+.putBtn .btn{
+	font-size: 1.875rem;
+}

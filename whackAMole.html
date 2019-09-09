@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>打地鼠啦啦啦！</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" href="css/startPlay.css">
+		<link rel="stylesheet" href="css/whackAMole.css">
+	</head>
+	<body>
+		<header class="header">
+			<div class="cent">
+				<p class="time">剩余次数：<span id="time">30</span></p>
+				<p class="nowGetCents">得到分数：<span id="nowGetCents">0</span></p>
+			</div>
+			<div class="scroll">
+				<div id="scroll" class="scroll-color all-scroll"></div>
+			</div>
+		</header>
+		<section class="main">
+			<div id="putMouse"></div>
+		</section>
+		<footer class="footer"></footer>
+		<div class="bg" style="background-image: url(img/startPlayBg.jpg);"></div>
+		<div id="billboardCheck" class="">
+			<div id="putUserInfo">
+				<p>得分为：<span id="putCents"></span></p>
+				<p>当前排名:<span id="nowBill"></span></p>
+				<div class="putBtn">
+					<button id="endGame" class="btn">结束游戏</button>
+					<button id="startAgain" class="btn">重新开始</button>
+				</div>
+			</div>
+		</div>
+		<script src="js/rem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/someFunction.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			document.addEventListener('plusready', function() {
+				var putMouse = $getId('putMouse');
+				var allMouseNum = $getItem("userInfo").allMouseNum;
+				var body = $getTagName('body')[0];
+				var nowGetCents = $getId('nowGetCents');
+				var nowTime = $getId('time');
+				var putbillboard = $getId('putbillboard');
+				for (var i = 0; i < allMouseNum; i++) {
+					var div = document.createElement('div');
+					if (allMouseNum == 6) {
+						$addClass(div, 'six-mouse');
+					} else if (allMouseNum == 8) {
+						$addClass(div, 'eight-mouse');
+					} else if (allMouseNum == 10) {
+						$addClass(div, 'ten-mouse');
+					} else if (allMouseNum == 12) {
+						$addClass(div, 'twelve-mouse');
+					}
+					putMouse.appendChild(div);
+				}
+				var closeTime;
+				var mouse = $getTagName($getId('putMouse'), 'div');
+				clearInterval(closeTime);
+				// 我想想.间歇调用里面弄个延时调用,去判断有着class:mouse这个的长度
+				// 如果大于0;说明有一个没有点到.那么剩余次数就扣个一.
+				// 再在间歇调用中去判断分数
+				var setInTime = 1000;
+				closeTime = setInterval(function() {
+					var randomNum=Math.floor(Math.random() * 4 + 2);
+					if(Number($getId('nowGetCents').innerText)<30){
+						randomNum=Math.floor(Math.random() * 2 + 1);
+					}
+					else if(Number($getId('nowGetCents').innerText)<60){
+						randomNum=Math.floor(Math.random() * 4 + 2);
+						setInTime=900;
+					}else if(Number($getId('nowGetCents').innerText)<120){
+						randomNum=Math.floor(Math.random() * 5 + 1);
+						setInTime=800;
+					}else if(Number($getId('nowGetCents').innerText)<200){
+						randomNum=Math.floor(Math.random() * 6 + 1);
+						setInTime=300;
+					}
+					for (var z = 0; z < allMouseNum; z++) {
+						$removeClass(mouse[z], 'isMouse');
+					}
+					for (var j = 0; j < randomNum; j++) {
+						var randomIndex = Math.floor(Math.random() * allMouseNum);
+						$addClass(mouse[randomIndex], 'isMouse');
+					}
+					setTimeout(function() {
+						var judgeTime = 0;
+						var mouseList = [];
+						for (var ti = 0; ti < allMouseNum; ti++) {
+							mouseList.push(mouse[ti]);
+							if (mouse[ti].className.indexOf('isMouse') != -1) {
+								judgeTime++;
+							}
+						}
+						var nowSetTime = Number(nowTime.innerText) - judgeTime;
+						var scroll = '';
+						if (nowSetTime < 0) {
+							scroll = 0 + '%'
+						} else {
+							scroll = ((nowSetTime / 30) * 100) + '%';
+						}
+						$removeClass($getId('scroll'), 'all-scroll');
+						$getId('scroll').style.width = scroll;
+						nowTime.innerText = nowSetTime;
+						if (Number(nowTime.innerText) <= 0) {
+							clearInterval(closeTime)
+							var status = $getItem("userInfo").status;
+							var userInfo = $getItem("userInfo")
+							var nowIndex = $getIndex(status, userInfo.info);
+							oldInfo={
+								'name':userInfo.info[nowIndex].name,
+								'img':userInfo.info[nowIndex].img,
+								'cents':userInfo.info[nowIndex].cents,
+								'password':userInfo.info[nowIndex].password
+							}
+							userInfo.info[nowIndex].cents = Number(nowGetCents.innerText);
+							userInfo.info[userInfo.info.length]=oldInfo;
+							var newUserInfoList = $sort(userInfo.info);
+							var newIndex = $getIndex(status, newUserInfoList);
+							$getId('putCents').innerText = nowGetCents.innerText;
+							$getId('nowBill').innerText = newIndex + 1;
+							$addClass($getId('billboardCheck'), 'show')
+							$setItem("userInfo", userInfo)
+						}
+					}, setInTime*0.9 )
+				}, setInTime)
+				body.addEventListener('touchstart', function(e) {
+					var _self = e.target;
+					if (_self.className.indexOf('isMouse') != -1) {
+						$removeClass(_self, 'isMouse');
+						nowGetCents.innerText = Number(nowGetCents.innerText) + 1
+					}
+				})
+				body.addEventListener('touchend', function(e) {
+					var _self = e.target;
+					if (_self.id == 'endGame') {
+						$openHtml('index.html')
+					} else if (_self.id == 'startAgain') {
+						$openHtml("whackAMole.html");
+					}
+				})
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,87 @@
+.footer{
+	position:absolute;
+	left: 0;
+	right: 0;
+	bottom: 20%;
+}
+.main{
+	position: absolute;
+	width: 90%;
+	margin-left: 5%;
+	top: 40%;
+	transform: translateY(-50%);
+	background-color: rgba(0,0,0,0.5);
+	border-radius: 0.3125rem;
+}
+#selectNums p{
+	background:rgb(252,234,143);
+	text-align: center;
+	padding: 0.625rem;
+	font-size: 1.25rem;
+	font-weight: bold;
+	border-bottom: 1px solid #DEB887;
+	transition: all 0.3s; 
+}
+#selectNums p.show{
+	background-color: darkgreen;
+	color: #FFFFFF;
+}
+.startGameBtn{
+	font-size: 2.5rem;
+}
+.header{
+	text-align: center;
+}
+#billboardBtn{
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+#billboard h2{
+	position: relative;
+}
+#billboard h2 span{
+	color: #FFFFFF;
+	position: absolute;
+	right: 0.625rem;
+}
+#billboardCheck{
+	position: absolute;
+	background: rgba(0, 0, 0, 0.2);
+	z-index: 2;
+	height: 100%;
+	width: 100%;
+	top: -62.5rem;
+	transition: all 1s;
+	align-items: center;
+	opacity: 0;
+}
+#billboardCheck.show {
+	opacity: 1;
+	top: 0;
+}
+#putbillboard{
+	border-radius: 0.3125rem;
+	position: absolute;
+	top: 46%;
+	transform: translateY(-50%) translateX(-50%);
+	left: 50%;
+	width: 70%;
+	height: 50%;
+	background: rgba(255,255,255,0.6);
+	padding: 0.625rem;
+}
+#putbillboard p{
+	display: flex;
+	justify-content: space-between;
+	font-size: 1.875rem;
+	background-color: rgb(252,234,143);
+}
+#putbillboard p:first-child{
+	background-color: rgb(245,148,131);
+}
+#putbillboard p:nth-child(2){
+	background-color:rgb(246,165,130);
+}
+#putbillboard p:nth-child(3){
+	background-color: rgb(255,198,128)
+}

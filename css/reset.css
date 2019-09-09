@@ -1,0 +1,86 @@
+body,
+ul,
+ol,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+table,
+td,
+img,
+div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+input{
+	outline: none;
+}
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+.bg{
+	top: 0;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	opacity: 0.5;
+	z-index: 0;
+	background-repeat:no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.header,.main,.footer{ 
+	position: relative;
+	z-index: 1;
+}
+.header{
+	margin-top: 1.25rem;
+}
+.header h1{
+	font-size: 1.5rem;
+	text-align: center;	
+	color: #DEB887;
+}
+.wrap{
+	margin: 1.875rem;
+}
+.btn{
+	border: none;
+	outline: none;
+	color: #fff;
+	background: burlywood;
+	font-size: 1.125rem;
+	letter-spacing:0.3125rem;
+	border-radius: 0.3125rem;
+}
+.footer{
+	display: flex;
+	justify-content: center;
+}
+#one{
+	padding:0.625rem;
+	font-size:1.5625rem;
+	background-color: rgb(245,148,131);
+}
+#two{
+	padding:  0.625rem;
+	font-size:1.5625rem;
+	background-color:rgb(246,165,130);
+}
+#three{
+	padding:  0.625rem;
+	font-size:1.5625rem;
+	background-color: rgb(255,198,128)
+}
