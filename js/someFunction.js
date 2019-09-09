@@ -125,12 +125,21 @@ function $sort(userInfoList) {
 	return newUserInfoList;
 }
 
-function $getIndex(status,userInfoList) {
-	for (var l = 0; l < userInfoList.length; l++) {
-		if (status == userInfoList[l].name) {
-			return l;
+function $getIndex() {
+	if(arguments.length===3){
+		for (var l = 0; l < arguments[0].length; l++) {
+			if (arguments[0][l][arguments[1]]== arguments[2]) {
+				return l;
+			}
+		}
+	}else if(arguments.length===5){
+		for (var l = 0; l < arguments[0].length; l++) {
+			if (arguments[0][l][arguments[1]]== arguments[2]&&arguments[0][l][arguments[3]]== arguments[4]) {
+				return l;
+			}
 		}
 	}
+	
 }
 function $createChirld(elType,string){
 	var el=document.createElement(elType);

@@ -10,6 +10,7 @@
 	</head>
 	<body>
 		<header class="header">
+			<h1>打地鼠-进行时 <span id="backBtn">&lt;</span></h1>
 			<div class="cent">
 				<p class="time">剩余次数：<span id="time">30</span></p>
 				<p class="nowGetCents">得到分数：<span id="nowGetCents">0</span></p>
@@ -22,7 +23,7 @@
 			<div id="putMouse"></div>
 		</section>
 		<footer class="footer"></footer>
-		<div class="bg" style="background-image: url(img/startPlayBg.jpg);"></div>
+		<div class="bg" style="background-image: url(img/whackBg.jpg);"></div>
 		<div id="billboardCheck" class="">
 			<div id="putUserInfo">
 				<p>得分为：<span id="putCents"></span></p>
@@ -108,7 +109,7 @@
 							clearInterval(closeTime)
 							var status = $getItem("userInfo").status;
 							var userInfo = $getItem("userInfo")
-							var nowIndex = $getIndex(status, userInfo.info);
+							var nowIndex = $getIndex(userInfo.info,"name",status);
 							oldInfo={
 								'name':userInfo.info[nowIndex].name,
 								'img':userInfo.info[nowIndex].img,
@@ -118,10 +119,10 @@
 							userInfo.info[nowIndex].cents = Number(nowGetCents.innerText);
 							userInfo.info[userInfo.info.length]=oldInfo;
 							var newUserInfoList = $sort(userInfo.info);
-							var newIndex = $getIndex(status, newUserInfoList);
+							var newIndex = $getIndex(newUserInfoList,"name",status,'cents', Number(nowGetCents.innerText));
 							$getId('putCents').innerText = nowGetCents.innerText;
 							$getId('nowBill').innerText = newIndex + 1;
-							$addClass($getId('billboardCheck'), 'show')
+							$addClass($getId('billboardCheck'), 'show');
 							$setItem("userInfo", userInfo)
 						}
 					}, setInTime*0.9 )
@@ -139,6 +140,9 @@
 						$openHtml('index.html')
 					} else if (_self.id == 'startAgain') {
 						$openHtml("whackAMole.html");
+					}else if(_self.id=='backBtn'){
+						$openHtml('playGame.html');
+						clearInterval(closeTime);
 					}
 				})
 			})

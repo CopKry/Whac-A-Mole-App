@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<header class="header">
-			<h1>打地鼠-选择难度</h1>
+			<h1>打地鼠-选择难度 <span id="backBtn">&lt;</span></h1>
 			<button id="billboardBtn" class="btn">查看完整排行榜</button>
 		</header>
 		<section class="main">
@@ -70,7 +70,7 @@
 						if (k < newUserInfoList.length) {
 							// var bilSpan = document.createElement('span');
 							// bilSpan.innerHTML = '得分为：' + newUserInfoList[k].cents + '分'
-							var bilSpan =$createChirld('span','得分为：' + newUserInfoList[j].cents + '分') ;
+							var bilSpan =$createChirld('span','得分为：' + newUserInfoList[k].cents + '分') ;
 							billboardH2[k].innerHTML += newUserInfoList[k].name;
 							billboardH2[k].appendChild(bilSpan);
 						} else {
@@ -105,7 +105,9 @@
 						} else {
 							$alertTitle("请选择难度，不然怎么玩？拿头玩吗？")
 						}
-					}
+					}else if(_self.id=='backBtn'){
+						$openHtml("index.html");
+					} 
 				})
 			})
 		</script>

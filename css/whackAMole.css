@@ -15,7 +15,7 @@
 }
 .scroll{
 	position: absolute;
-	top: 3.125rem;
+	top: 6.25rem;
 	border: 5px solid burlywood;
 	left: 0;
 	right: 0;
@@ -37,7 +37,7 @@
 	border-radius: 0.625rem;
 }
 .main{
-	top: 52%;
+	top: 58%;
 	height: 80%;
 }
 #putMouse{
@@ -47,16 +47,18 @@
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
+	background: url(../img/greenBg.jpg) no-repeat top;
+	background-size: cover;
 }
 #putMouse>div{
 	margin: 0.3125rem;
 	background: url(../img/dong.png) no-repeat center;
-	background-size: cover;
+	background-size: contain;
 }
 #putMouse>.isMouse{
 	background-image:url(../img/disu.png);
 }
-.six-mouse{
+.six-mouse{  
 	width: 45%;
 	height: 30%;
 }
