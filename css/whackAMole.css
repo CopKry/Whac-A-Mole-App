@@ -54,10 +54,51 @@
 	margin: 0.3125rem;
 	background: url(../img/dong.png) no-repeat center;
 	background-size: contain;
+	position: relative;
 }
-#putMouse>.isMouse{
+.mole{
+	top: 40%;
+	border-radius: 50%;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	position: absolute;
+	width: 90%;
+	height: 50%;
 	background-image:url(../img/disu.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	transition: all 0.5s;
+	z-index: 2;
+	opacity: 0;
 }
+.showMole{
+	opacity:1;
+	top: 0;
+}
+.hammer{
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	top: -5rem;
+	width: 50%;
+	height: 50%;
+	background:url(../img/hammer.png) no-repeat center;
+	background-size: contain;
+	opacity: 0;
+	z-index: 1;
+	transition: all 0.2s;
+}
+.hammerRota{
+	top: -3rem;
+	transform: rotate(-70deg);
+	opacity: 1;
+}
+/* #putMouse>.isMouse{
+	background-image:url(../img/disu.png);
+} */
 .six-mouse{  
 	width: 45%;
 	height: 30%;
