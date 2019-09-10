@@ -63,18 +63,23 @@ document.addEventListener('plusready', function() {
 				$addClass(login, 'show', loginTab, 'show');
 				break;
 			case 'loginBtn':
-				if (loginUserName.value === '' || loginPassWord.value === '') {
-					$alertTitle('你给我填信息啊，填信息啊，填信息啊，你不知道我一天弹好多次很累的啊！')
-				} else if (judge(loginUserName.value, loginPassWord.value, $getItem('userInfo')).length > 0) {
-					var userInfo = $getItem("userInfo")
-					userInfo.status = loginUserName.value;
-					$setItem("userInfo", userInfo);
-					$alertTitle('登录成功');
-					$openHtml("playGame.html");
-				} else {
+				try {
+					if (loginUserName.value === '' || loginPassWord.value === '') {
+						$alertTitle('你给我填信息啊，填信息啊，填信息啊，你不知道我一天弹好多次很累的啊！')
+					} else if (judge(loginUserName.value, loginPassWord.value, $getItem('userInfo')).length > 0) {
+						var userInfo = $getItem("userInfo")
+						userInfo.status = loginUserName.value;
+						$setItem("userInfo", userInfo);
+						$alertTitle('登录成功');
+						$openHtml("playGame.html");
+					} else {
+						$alertTitle('账号或密码错误，重新来过');
+					}
+					break;
+				} catch (e) {
 					$alertTitle('账号或密码错误，重新来过');
+					break;
 				}
-				break;
 			case 'registerBtn':
 				if (registerUserName.value === '' || registerPassWord.value === '') {
 					$alertTitle('你给我填信息啊，填信息啊，填信息啊，你不知道我一天弹好多次很累的啊！')

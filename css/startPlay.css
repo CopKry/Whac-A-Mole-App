@@ -4,6 +4,7 @@
 }
 .header #backBtn{
 	position: absolute;
+	width: 5rem;
 	left: 1.25rem;
 }
 .footer{

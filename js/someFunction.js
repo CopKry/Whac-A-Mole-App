@@ -146,3 +146,11 @@ function $createChirld(elType,string){
 	el.innerHTML=string;
 	return el;
 }
+function $setRandom(){
+	if(arguments.length==2){
+		return Math.floor(Math.random() * arguments[0] + arguments[1]);
+	}else if(arguments.length==1){
+		return Math.floor(Math.random() * arguments[0]);
+	}
+	
+}

@@ -1,19 +1,22 @@
-.cent{
-	padding:0.625rem;
+.cent {
+	padding: 0.625rem;
 	display: flex;
 	justify-content: space-between;
 	font-size: 1.875rem;
 	overflow: hidden;
 }
-.time{
+
+.time {
 	position: absolute;
-	left:1.25rem;
+	left: 1.25rem;
 }
-.nowGetCents{
+
+.nowGetCents {
 	position: absolute;
 	right: 1.25rem;
 }
-.scroll{
+
+.scroll {
 	position: absolute;
 	top: 6.25rem;
 	border: 5px solid burlywood;
@@ -23,24 +26,28 @@
 	border-radius: 0.625rem;
 	width: 25rem;
 	height: 1.5625rem;
-	background-color: rgba(255,255,255,0.3);
+	background-color: rgba(255, 255, 255, 0.3);
 }
-.scroll-color{
+
+.scroll-color {
 	height: 100%;
 	width: 100%;
-	border-top-left-radius:0.625rem;
-	border-bottom-left-radius: 0.625rem;
+	border-top-left-radius: 0.625rem;
+	border-bottom-left-radius: 0.7rem;
 	background-color: green;
-	transition: all 1s;
+	transition: all 1s linear;
 }
-.all-scroll{
-	border-radius: 0.625rem;
+
+.all-scroll {
+	border-radius: 0.7rem;
 }
-.main{
+
+.main {
 	top: 58%;
 	height: 80%;
 }
-#putMouse{
+
+#putMouse {
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -50,22 +57,23 @@
 	background: url(../img/greenBg.jpg) no-repeat top;
 	background-size: cover;
 }
-#putMouse>div{
+
+#putMouse>div {
 	margin: 0.3125rem;
-	background: url(../img/dong.png) no-repeat center;
+	background: url(../img/dong.png) no-repeat bottom;
 	background-size: contain;
 	position: relative;
 }
-.mole{
+
+.mole {
 	top: 40%;
-	border-radius: 50%;
 	left: 0;
 	right: 0;
 	margin: 0 auto;
 	position: absolute;
-	width: 90%;
-	height: 50%;
-	background-image:url(../img/disu.png);
+	width: 80%;
+	height: 80%;
+	background-image: url(../img/disu.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
@@ -73,11 +81,13 @@
 	z-index: 2;
 	opacity: 0;
 }
-.showMole{
-	opacity:1;
-	top: 0;
+
+.showMole {
+	opacity: 1;
+	top: 10%;
 }
-.hammer{
+
+.hammer {
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -85,37 +95,43 @@
 	top: -5rem;
 	width: 50%;
 	height: 50%;
-	background:url(../img/hammer.png) no-repeat center;
+	background: url(../img/hammer.png) no-repeat center;
 	background-size: contain;
 	opacity: 0;
 	z-index: 1;
-	transition: all 0.2s;
+	transition: all 0.1s;
 }
-.hammerRota{
+
+.hammerRota {
 	top: -3rem;
 	transform: rotate(-70deg);
 	opacity: 1;
 }
+
 /* #putMouse>.isMouse{
 	background-image:url(../img/disu.png);
 } */
-.six-mouse{  
+.six-mouse {
 	width: 45%;
 	height: 30%;
 }
-.eight-mouse{
+
+.eight-mouse {
 	width: 45%;
 	height: 23%;
 }
-.ten-mouse{
+
+.ten-mouse {
 	width: 45%;
 	height: 18%;
 }
-.twelve-mouse{
+
+.twelve-mouse {
 	width: 30%;
 	height: 23%;
 }
-#putUserInfo{
+
+#putUserInfo {
 	border-radius: 0.3125rem;
 	position: absolute;
 	top: 46%;
@@ -123,19 +139,22 @@
 	left: 50%;
 	width: 70%;
 	height: 50%;
-	background: rgba(255,255,255,0.8);
+	background: rgba(255, 255, 255, 0.8);
 	padding: 0.625rem;
 }
-#putUserInfo>p{
+
+#putUserInfo>p {
 	font-size: 2.5rem;
 	text-align: center;
 	margin-top: 3.125rem;
 }
-.putBtn{
+
+.putBtn {
 	margin-top: 2.5rem;
 	display: flex;
 	justify-content: space-between;
 }
-.putBtn .btn{
+
+.putBtn .btn {
 	font-size: 1.875rem;
 }
