@@ -125,7 +125,7 @@
 	background-size: cover;
 	margin: 0.625rem;
 	border-radius: 50%;
-	border: 1px solid pink;
+	border: 0.0625rem solid pink;
 	transition: all 1s;
 }
 

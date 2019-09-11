@@ -28,7 +28,7 @@
 	padding: 0.625rem;
 	font-size: 1.25rem;
 	font-weight: bold;
-	border-bottom: 1px solid #DEB887;
+	border-bottom: 0.0625rem solid #DEB887;
 	transition: all 0.3s; 
 }
 #selectNums p.show{
